@@ -1,0 +1,31 @@
+server {
+    root /var/www/backend/web;
+
+    listen 80;
+
+    client_max_body_size 100M;
+
+    location / {
+        # try to serve file directly, fallback to app.php
+        try_files $uri /app_entrypoint.php$is_args$args;
+    }
+
+    location ~ ^/(app_entrypoint|config)\.php(/|$) {
+        fastcgi_pass php_container:9000;
+        fastcgi_split_path_info ^(.+\.php)(/.*)$;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+        fastcgi_param DOCUMENT_ROOT $realpath_root;
+        fastcgi_param COMPOSER_HOME /var/www/.composer;
+        internal;
+        fastcgi_read_timeout 300;
+        fastcgi_param ORO_PHP_PATH /usr/local/bin/php;
+    }
+
+    location ~ \.php$ {
+      return 404;
+    }
+
+    error_log /var/log/nginx/app_error.log;
+    access_log /var/log/nginx/app_access.log;
+}
