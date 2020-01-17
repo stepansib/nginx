@@ -1,6 +1,6 @@
-# Seligo UniApp Nginx image
+# Nginx image
 
-Nginx image for Seligo UniApp
+Nginx image
 
 Env variables:
  - TYPE=http (optional, can be `http` or `https`, default is `http`)
