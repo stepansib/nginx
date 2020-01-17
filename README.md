@@ -1,6 +1,6 @@
-# Nginx image
+# Nginx
 
-Nginx image
+Nginx docker container
 
 Env variables:
  - TYPE=http (optional, can be `http` or `https`, default is `http`)
