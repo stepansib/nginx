@@ -8,3 +8,4 @@ Env variables:
  - APP_URL=example.com (required only when publishing app)
  - APP_ENTRYPOINT=app_dev (optional, can be `app` or `app_dev`, application entrypoint filename)
  - APP_FRAMEWORK=sf (optional, can be `sf` or `yii`)
+ - APP_PUBLIC_DIR=web (document root)

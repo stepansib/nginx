@@ -4,6 +4,7 @@ MAINTAINER Stepan Yudin <stepan.sib@gmail.com>
 ENV TYPE=http
 ENV APP_CONTAINER=php_container
 ENV APP_URL=example.com
+ENV APP_PUBLIC_DIR=web
 ENV APP_ENTRYPOINT=app_dev
 ENV APP_FRAMEWORK=sf
 
